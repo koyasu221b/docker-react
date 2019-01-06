@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t koyasu221b/docker-react Dockerfile.dev  .
+
+script:
+  - docker run koyasu221b/docker-react npm run test -- --coverage
